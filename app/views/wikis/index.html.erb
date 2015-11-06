@@ -1,11 +1,8 @@
 <div class="row">
   <div class="col-md-8">
-    <h1>Popular Wikis</h1>
-    <p class="lead">Active Wikis this week</p>
-  </div>
-  <div class="col-md-4">
-    <%= link_to wiki.title, wiki_path(wiki.id) %>
-    <%= wiki.body %>
+    <h1>Wikis</h1>
+    <% @wikis.each do |wiki| %>
+      <p><%= link_to wiki.title, wiki_path(wiki.id) %></p>
+    <% end %>
   </div>
 </div>
-    
