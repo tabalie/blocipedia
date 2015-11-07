@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-md-8">
     <h1>Wikis</h1>
+
+    <% if policy(Wiki.new).create? %>
+      <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-success' %>
+    <% end %>
+    
     <% @wikis.each do |wiki| %>
       <p><%= link_to wiki.title, wiki_path(wiki.id) %></p>
     <% end %>

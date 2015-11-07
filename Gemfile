@@ -32,6 +32,9 @@ gem 'devise'
 # Figaro - for handling sensitive data (added 110215)
 gem 'figaro', '1.0'
 
+# Pundit - User Authorization
+gem 'pundit'
+
 # Rails_db, database visualizer (Added 110215)
 # gem 'rails_db'
 
