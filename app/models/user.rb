@@ -6,11 +6,19 @@ class User < ActiveRecord::Base
 
   has_many :wikis
 
+  before_create :make_member
+
   def admin?
     role == 'admin'
   end
 
   def moderator?
     role == 'moderator'
+  end
+
+  private
+
+  def make_member
+    self.role = "member" unless self.role
   end
 end
