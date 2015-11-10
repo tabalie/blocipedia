@@ -32,8 +32,13 @@ gem 'devise'
 # Figaro - for handling sensitive data (added 110215)
 gem 'figaro', '1.0'
 
-# Pundit - User Authorization
+# Pundit - User Authorization (added 110715)
 gem 'pundit'
+
+# Faker - helps generate development data (added 110915)
+gem 'faker'
+
+
 
 # Rails_db, database visualizer (Added 110215)
 # gem 'rails_db'
