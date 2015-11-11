@@ -6,19 +6,25 @@ class User < ActiveRecord::Base
 
   has_many :wikis
 
-  before_create :make_member
+  PREMIUM = "premium"
+  STANDARD = "standard"
 
-  def admin?
-    role == 'admin'
+  def premium?
+    role == PREMIUM
   end
 
-  def moderator?
-    role == 'moderator'
+  def standard?
+    role == STANDARD
   end
 
-  private
-
-  def make_member
-    self.role = "member" unless self.role
+  def make_premium
+    self.role = PREMIUM
+    save
   end
+
+  def make_standard
+    self.role = STANDARD
+    save
+  end
+
 end

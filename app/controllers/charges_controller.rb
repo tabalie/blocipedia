@@ -2,7 +2,7 @@ class ChargesController < ApplicationController
 
   def new
     @stripe_btn_data = {
-      key: "#{ Rails.configuration.stripe[:publishable_key] }",
+      key: Rails.configuration.stripe[:stripe_publishable_key],
       description: "BigMoney Membership - #{current_user.name}",
       amount: 10_00
     }
@@ -20,20 +20,17 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       customer: customer.id, # Note -- this is NOT the user_id in your app
       amount: 10_00,
-      description: "Ultimate Membership - #{current_user.email}",
+      description: "Premium Membership - #{current_user.email}",
       currency: 'usd'
     )
 
-    if current_user.update(role: 'ultimate')
-      flash[:success] = "Thank you for upgrading to the Ultimate Membership, #{current_user.email}!"
+    if current_user.make_premium
+      flash[:success] = "Thank you for upgrading to the Premium Membership, #{current_user.email}!"
       redirect_to edit_user_registration_path
     else
       flash[:error] = "There was an error upgrading your account."
       redirect_to edit_user_registration_path
     end
-
-    flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
-    redirect_to user_path(current_user)
 
     # Stripe will send back CardErrors, with friendly messages
     rescue Stripe::CardError => e
