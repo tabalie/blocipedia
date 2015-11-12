@@ -67,4 +67,7 @@ group :development, :test do
   # Added database visualizer (110515)
   gem 'rails_db'
 
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
 end
