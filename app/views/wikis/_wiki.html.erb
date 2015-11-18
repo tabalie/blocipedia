@@ -2,10 +2,12 @@
   <div class="media-body">
     <h2 class="media-heading">
        <%= wiki.title %> <br >
-       <small>Created by: <%= link_to wiki.user , wiki.user %></small>
+       <small>Created by: <%= link_to wiki.user.name , wiki.user %></small>
     </h2>
-    <%= f.label :public, class: 'checkbox' do %>
-      <%= f.check_box :public %> Public wiki
+    <% if wiki.private %>
+      Private Wiki
+    <% else %>
+      Public Wiki
     <% end %>
     <div>
       <%= wiki.body %>

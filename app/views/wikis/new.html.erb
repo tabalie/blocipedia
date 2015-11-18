@@ -19,10 +19,10 @@
         <%= f.label :body %>
         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: 'Enter Wiki body'%>
       </div>
-      <% if policy(@wiki).make_private? %>
+      <% if current_user.premium? %>
         <div class='form-group'>
-          <%= f.label :public, class: 'checkbox' do %>
-            <%= f.check_box :public, {}, false, true %> Make wiki private
+          <%= f.label :private, class: 'checkbox' do %>
+            <%= f.check_box :private %> Make wiki private
           <% end %>
         </div>
       <% end %>

@@ -24,7 +24,8 @@ require 'faker'
   50.times do
     Wiki.create!(
       title: Faker::Lorem.sentence,
-      body: Faker::Lorem.paragraph
+      body: Faker::Lorem.paragraph,
+      user: users.sample
     )
   end
   wikis = Wiki.all
