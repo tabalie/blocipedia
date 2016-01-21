@@ -25,7 +25,7 @@ class ChargesController < ApplicationController
     )
 
     if current_user.make_premium
-      flash[:success] = "Thank you for upgrading to the Premium Membership, #{current_user.email}! You now can have private wikis and invite collaborators to work on your wikis."
+      flash[:notice] = "Thank you for upgrading to the Premium Membership, #{current_user.email}! You now can have private wikis and invite collaborators to work on your wikis."
       redirect_to edit_user_registration_path
     else
       flash[:error] = "There was an error upgrading your account to Premium Membership. Your membership is still a Standard membership."
