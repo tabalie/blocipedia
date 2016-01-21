@@ -40,7 +40,6 @@ gem 'faker'
 # Stripe - let's customer's pay to upgrade https://stripe.com/ (added 110915)
 gem 'stripe'
 
-
 # Rails_db, database visualizer (Added 110215)
 # gem 'rails_db'
 

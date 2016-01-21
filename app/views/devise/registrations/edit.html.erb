@@ -1,22 +1,12 @@
-<h2>Edit Your <%= resource_name.to_s.humanize %> Profile</h2><br>
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<h4>Currently, you are signed up for a <b><%= resource.role.capitalize %> Membership</b></h4>
-
-<br>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :name  %><br />
-    <%= f.text_field :name %>
-  </div>
-  <br>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
-  <br>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -41,10 +31,9 @@
     <%= f.submit "Update" %>
   </div>
 <% end %>
-<br><br>
 
-<h3>Cancel your Premium Account</h3>
+<h3>Cancel my account</h3>
 
-<p>Unhappy with your Premium Membership? (<b>Please note, by downgrading to Standard Membership, all private wikis will become public.</b>)<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
