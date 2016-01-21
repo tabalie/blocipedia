@@ -5,4 +5,4 @@ Rails.configuration.stripe = {
 }
 
 # Set our app-stored secret key with Stripe
-Stripe.api_key = Rails.configuration.stripe[:stripe_secret_key]
+Stripe.api_key = Rails.configuration.stripe[:secret_key]
